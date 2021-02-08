@@ -6,7 +6,7 @@ public class Driver{
 
     public static void main(String[] args) throws IOException{
         Scanner scanner = new Scanner();
-//        Parser parser = new Parser();
+        Parser parser = new Parser();
 
         InputStream is = new FileInputStream("Input.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -16,13 +16,12 @@ public class Driver{
 
         String input;
         String text = "";
-//        HashMap<String, Rule> rules = parser.createRules();
         while((input = br.readLine()) != null){
             ArrayList<Token> tokenList = scanner.process(input);
             text += input;
-//            if (tokenList.size() > 0){
-//                text += parser.parse(tokenList, rules);
-//            }
+            if (tokenList.size() > 0){
+                text += parser.parse(tokenList);
+            }
 
             text += "\n";
         }
