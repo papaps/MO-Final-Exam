@@ -30,6 +30,8 @@ public class Parser {
                     if (!over && stack.peek().equals(token.getTokenType())) {
                         stack.pop();
                         pointer++;
+                    } else if (!over && stack.peek()=="$") {
+                        return "- REJECT";
                     } else if (!over && table.containsElement(stack.peek(), token.toString())) {
                         expand(stack, table.getElement(stack.peek(), token.toString()));
                     } else {

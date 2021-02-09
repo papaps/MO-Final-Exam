@@ -81,21 +81,21 @@ public class Token{
             char c = word.charAt(i);
             state = transitions(state, c);
         }
-        if (state == 1)
+        if (state == q1)
             return TokenType.ALPHANUM;
-        else if (state == 2)
+        else if (state == q2)
             return TokenType.STAR;
-        else if (state == 3)
+        else if (state == q3)
             return TokenType.PLUS;
-        else if (state == 4)
+        else if (state == q4)
             return TokenType.OPTIONAL;
-        else if (state == 5)
+        else if (state == q5)
             return TokenType.LPAREN;
-        else if (state == 6)
+        else if (state == q6)
             return TokenType.RPAREN;
-        else if (state == 7)
+        else if (state == q7)
             return TokenType.UNION;
-        else if (state == 8)
+        else if (state == q8)
             return TokenType.EMPTY;
         else
             return TokenType.ERROR;
@@ -103,15 +103,6 @@ public class Token{
 
     public String getTokenType() {return tokenType.toString();}
     public String getLexeme() {return lexeme;}
-
-//    public static String offendingOpeningBracket(String type) {
-//        if (type.equals(TokenType.RPAREN.toString())){
-//            return "(";
-//        } else if (type.equals(TokenType.RBRACK.toString())){
-//            return "[";
-//        }
-//        return "";
-//    }
 
     @Override
     public String toString(){
